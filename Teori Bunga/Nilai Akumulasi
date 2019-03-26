@@ -1,0 +1,26 @@
+nilaiakumulasi<-function(num,k,i,t,m=TRUE){
+  #satu = bunga tunggal
+  #dua = bunga majemuk/nominal
+  #bunga = majemuk kontinu
+  #k = modal
+  #im = bunga (desimal)
+  #t = waktu (tahun)
+  #m = banyak bunga diberikan dalam 1 th
+  #i = im/m
+  #num = pilihan
+  switch(num, 
+         satu={
+           At=k*(1+i*t)^t #m=1
+           cat("Nilai akumulasi Bunga Tunggal:",At)
+         },
+         dua={
+           At=k*(1+i/m)^(m*t)  #m>1
+           cat("Nilai akumulasi Bunga Majemuk:",At )
+         },
+           tiga={
+             At=k*exp(i*t)
+             cat("Nilai akumulasi Bunga Majemuk Kontinu:",At)
+         }
+  )
+  return(At)
+}
